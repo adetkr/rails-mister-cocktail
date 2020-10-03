@@ -1,0 +1,27 @@
+<div class="container">
+
+  <div class="card-show">
+    <div>
+      <h2> Ingredient List for <%=  @cocktail.name %> </h2>
+
+
+        <ul>
+          <% @cocktail.doses.each do |dose| %>
+            <li> <%= "#{dose.ingredient.name} : #{dose.description}" %>  <%= link_to "Delete" , dose_delete_path(dose), method: :delete %></li>
+
+          <% end %>
+        </ul>
+
+      <%= link_to "Add Dose" , new_cocktail_dose_path(@cocktail), :class => "btn btn-primary" %>
+
+    </div>
+    <div>
+      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg" alt="">
+    </div>
+  </div>
+
+</div>
+
+
+
+

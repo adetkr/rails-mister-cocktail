@@ -1,0 +1,12 @@
+// Place all the styles related to the cocktails controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.card-show {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  img {
+    width: 400px;
+  }
+}
