@@ -15,14 +15,16 @@
       <%= link_to "Add Dose" , new_cocktail_dose_path(@cocktail), :class => "btn btn-primary" %>
 
     </div>
+    <% if @cocktail.picture.attached? %>
     <div>
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg" alt="">
+      <%= cl_image_tag @cocktail.picture.key, crop: :fill %>
     </div>
+    <% end %>
   </div>
 
   <div class="edit-options">
     <%= link_to "Edit " , edit_cocktail_path(@cocktail), :class => "btn btn-primary" %>
-    <%= link_to "Delete " , new_cocktail_dose_path(@cocktail), :class => "btn btn-danger" %>
+    <%= link_to "Delete " , cocktail_path, method: :delete, :class => "btn btn-danger" %>
   </div>
 
 </div>

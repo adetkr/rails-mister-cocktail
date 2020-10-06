@@ -16,6 +16,14 @@ class CocktailsController < ApplicationController
     @cocktail = Cocktail.find(params[:id])
   end
 
+
+  def destroy
+    @cocktail = Cocktail.find(params[:id])
+    @cocktail.delete
+
+    redirect_to root_path
+  end
+
   def create
     @cocktail = Cocktail.new(cocktail_params)
     if @cocktail.save

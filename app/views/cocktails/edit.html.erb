@@ -1,5 +1,5 @@
 <div class="container">
-  <h1> Add a new cocktail </h1>
+  <h1> Edit <%=  @cocktail.name %> </h1>
   <%= simple_form_for :cocktail, method: :patch do |f| %>
     <%= f.input :name %>
     <%= f.input :picture, as: :file %>
