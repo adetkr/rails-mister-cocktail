@@ -1,7 +1,7 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
   <div class="container">
     <h1>Cocktail Generator</h1>
-    <p>Add your favorites cocktails and make become the best cocktail designer!</p>
+    <p>Add your favorites cocktails and become the best cocktail designer!</p>
     <%= link_to "Create cocktail", new_cocktail_path, :class => "btn btn-flat" %>
   </div>
 </div>
@@ -11,11 +11,20 @@
   <div class="cards">
     <% @cocktails.each do |cocktail| %>
 
+      <% if cocktail.picture.attached? %>
+
       <a href= <%= "cocktails/#{cocktail.id}" %> >
-        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path cocktail.picture.key, crop: :fill %>)">
           <%= cocktail.name %>
         </div>
       </a>
+      <% else %>
+      <a href= <%= "cocktails/#{cocktail.id}" %> >
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg')">
+          <%= cocktail.name %>
+        </div>
+      </a>
+      <% end %>
 
     <% end %>
 
