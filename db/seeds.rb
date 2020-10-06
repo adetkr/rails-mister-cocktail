@@ -25,13 +25,13 @@ pagination.each do |element|
 end
 
 
-html_content = open("https://www.1001cocktails.com/recettes/selection_cocktails-sans-alcool.aspx")
+#html_content = open("https://www.1001cocktails.com/recettes/selection_cocktails-sans-alcool.aspx")
 
-doc = Nokogiri::HTML(html_content)
+#doc = Nokogiri::HTML(html_content)
 
-pagination = doc.search('.recipe-card__title')
+#pagination = doc.search('.recipe-card__title')
 
-pagination.each do |element|
-  Cocktail.create(name: element.text)
-end
+#pagination.each do |element|
+#  Cocktail.create(name: element.text)
+#end
 
