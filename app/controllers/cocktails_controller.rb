@@ -12,6 +12,23 @@ class CocktailsController < ApplicationController
     @cocktail = Cocktail.find(params[:id])
   end
 
+  def search
+
+    @cocktails  = []
+    @query = params[:query]
+
+
+    @ingredient = Ingredient.find_by_name(@query)
+    if !@ingredient.nil?
+      @doses = Dose.where(ingredient_id: @ingredient.id)
+      @doses.each do |dose|
+        @cocktails << Cocktail.find(dose.cocktail_id)
+      end
+
+    end
+
+  end
+
   def edit
     @cocktail = Cocktail.find(params[:id])
   end

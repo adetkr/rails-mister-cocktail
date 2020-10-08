@@ -5,6 +5,9 @@ Rails.application.routes.draw do
 
   resources :cocktails do
     resources :doses, only: [:new, :create]
+    collection do
+      get :search
+    end
   end
 
   delete "doses/:id", to: "doses#destroy", as: :dose_delete

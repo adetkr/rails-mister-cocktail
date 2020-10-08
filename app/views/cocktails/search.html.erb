@@ -1,0 +1,32 @@
+<div class="container">
+  <% if @cocktails == [] %>
+
+  <center> <h1>Sorry, no result found for <%= @query %> </h1> </center>
+  <% else %>
+
+   <center> <h1>Search results <%= @query %> </h1> </center>
+  <% end %>
+  <div class="cards">
+    <% @cocktails.each do |cocktail| %>
+
+      <% if cocktail.picture.attached? %>
+
+      <a href= <%= "cocktails/#{cocktail.id}" %> >
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path cocktail.picture.key, crop: :fill %>)">
+          <%= cocktail.name %>
+        </div>
+      </a>
+      <% else %>
+      <a href= <%= "cocktails/#{cocktail.id}" %> >
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg')">
+          <%= cocktail.name %>
+        </div>
+      </a>
+      <% end %>
+
+    <% end %>
+
+  </div>
+  <center> <%= link_to "Back to cocktail list", cocktails_path, :class => "back" %> </center>
+
+</div>
